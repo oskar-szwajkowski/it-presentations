@@ -1,0 +1,374 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Bazy danych</title>
+
+	<link rel="stylesheet" href="../../reveal.js/css/reset.css">
+	<link rel="stylesheet" href="../../reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="../../reveal.js/css/theme/black.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="../../reveal.js/lib/css/monokai.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+	<style>
+		.small-font {
+			font-size: 21px;
+		}
+		
+		.small-logo {
+			width: 90px;
+			height: 60px;
+			background-color: white !important;
+			margin: 5px 0 !important;
+		}
+		
+		.db-element {
+			display: flex;
+			align-items: center;
+		}
+		
+		.pure-list {
+			list-style: none !important;
+			list-style-type: none !important;
+			display: block !important;
+		}
+		
+		.db-name {
+			margin-left: 20px;
+		}
+		
+		.small-text {
+			font-size: 26px;
+		}
+		
+		.small-helper {
+			font-size: 22px;
+			font-color: grey;
+		}
+		
+		.example {
+			font-style: italic;
+		}
+		
+		.highlight {
+			background-color: rgba(100, 100, 100, 0.2) !important;
+			margin: 0 !important;
+			padding: 10px 10px 0px 20px !important;
+			border-top: rgba(100, 100, 100, 0.55) 5px solid;
+			border-left: rgba(100, 100, 100, 0.55) 3px solid;
+		}
+		
+		.explanation {
+			background-color: rgba(100, 100, 100, 0.1) !important;
+			margin: 0 !important;
+			padding: 10px 10px 0px 20px !important;
+			border-bottom: rgba(100, 100, 100, 0.2) 5px solid;
+			border-right: rgba(100, 100, 100, 0.2) 3px solid;
+			
+		}
+		
+	</style>
+</head>
+<body>
+<div class="reveal">
+	<div class="slides">
+		<section>
+			<h2>Czym jest baza danych?</h2>
+			<p class="fragment">Najprostszy przykład bazy danych - system plików</p>
+		</section>
+		<section>
+			<h2>Czy baza danych jest potrzebna programiście?</h2>
+		</section>
+		<section>
+			<h2>Po co jest baza danych?</h2>
+			<ul>
+				<li class="fragment">Utrzymuje stan aplikacji</li>
+				<li class="fragment">Powinna być wiarygodnym źródłem danych</li>
+			</ul>
+		</section>
+		<section>
+			<h3>Cechy wspólne baz danych:</h3>
+			<ul>
+				<li class="fragment">Możliwość zapisu</li>
+				<li class="fragment">Możliwość odczytu</li>
+				<li class="fragment">Jednostka zapisu/odczytu
+					<p class="fragment small-font">Czasem podział na jednostki logiczne / fizyczne</p>
+				</li>
+				<li class="fragment">Język zapytań</li>
+			</ul>
+		</section>
+		<section>
+			<h3>Przykłady baz danych:</h3>
+			<ul>
+				<li>System plików</li>
+				<li class="fragment">Arkusz excela</li>
+				<li class="fragment">
+					<span>Bazy relacyjne</span>
+					<ul class="pure-list">
+						<li class="small-font fragment">
+							<div class="db-element">
+								<img class="small-logo" src="img/mysql.svg"/>
+								<span class="db-name">MySQL</span>
+							</div>
+						</li>
+						<li class="small-font fragment">
+							<div class="db-element">
+								<img class="small-logo" src="img/microsoft-sql-server.svg"/>
+								<span class="db-name">MSSQL (Microsoft SQL Server)</span>
+							</div>
+						</li>
+						<li class="small-font fragment">
+							<div class="db-element">
+								<img class="small-logo" src="img/oracle-sql.jpeg"/>
+								<span class="db-name">Oracle SQL</span>
+							</div>
+						</li>
+						<li class="small-font fragment">
+							<div class="db-element">
+								<img class="small-logo" src="img/postgre-sql.jpg"/>
+								<span class="db-name">PostgreSQL</span>
+							</div>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</section>
+		<section>
+			<h3>Dalsza część...</h3>
+			<p>Bazy "NOSQL"</p>
+			<ul>
+				<li>
+					<div>
+						<span>Dokumentowe bazy danych</span>
+						<div class="db-element fragment">
+							<img class="small-logo" src="img/mongodb.png"/>
+							<span class="db-name">MongoDB</span>
+						</div>
+					</div>
+				</li>
+				<li class="fragment">
+					<div>
+						<span>Bazy danych typu klucz - wartość</span>
+						<div class="db-element fragment">
+							<img class="small-logo" src="img/redis.png"/>
+							<span class="db-name">Redis</span>
+						</div>
+					</div>
+				</li>
+				<li class="fragment">
+					<div>
+						<span>Wide column database</span>
+						<div class="db-element fragment">
+							<img class="small-logo" src="img/cassandra.png"/>
+							<span class="db-name">Apache Cassandra</span>
+						</div>
+					</div>
+				</li>
+				<li class="fragment">
+					<div>
+						<span>Grafowa baza danych</span>
+						<div class="db-element fragment">
+							<img class="small-logo" src="img/neo4j.png"/>
+							<span class="db-name">Neo4J</span>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</section>
+		<section>
+			<h3>Inne bazy warte wspomnienia</h3>
+			<ul class="pure-list">
+				<li class="fragment">
+					<div class="db-element">
+						<img class="small-logo" src="img/amazon-dynamo-db.png"/>
+						<span class="db-name">Amazon Dynamo DB</span>
+					</div>
+				</li>
+				<li class="fragment">
+					<div class="db-element">
+						<img class="small-logo" src="img/elasticsearch.png"/>
+						<span class="db-name">Elasticsearch</span>
+					</div>
+				</li>
+			</ul>
+		</section>
+		<section>
+			<section>
+				<h3>Trochę więcej o SQL-u</h3>
+				<div class="fragment">
+					<h4>DDL - Data Definition Language</h4>
+					<ul class="pure-list">
+						<li>
+							<p class="highlight">CREATE</p>
+							<p class="explanation">Używany do <u>tworzenia</u> struktur w bazie</p>
+							<p class="small-helper">przykład użycia:</p>
+							<p class="example">CREATE TABLE customers (ID int NOT NULL, first_name VARCHAR(50) NOT NULL, last_name VARCHAR(100) NOT NULL, PRIMARY KEY (ID))</p>
+						</li>
+					</ul>
+				</div>
+			</section>
+			<section>
+				<div>
+					<h4>DDL - Data Definition Language</h4>
+					<ul class="pure-list">
+						<li>
+							<p class="highlight">DROP</p>
+							<p class="explanation">Używany do <u>usuwania</u> struktur z bazy</p>
+							<p class="small-helper">przykład użycia:</p>
+							<p class="example">DROP TABLE customers</p>
+						</li>
+					</ul>
+				</div>
+			</section>
+			<section>
+				<div>
+					<h4>DDL - Data Definition Language</h4>
+					<ul class="pure-list">
+						<li>
+							<p class="highlight">ALTER</p>
+							<p class="explanation">Używany do <u>zmiany</u> struktur w bazie</p>
+							<p class="small-helper">przykład użycia:</p>
+							<p class="example">ALTER TABLE customers ADD COLUMN city</p>
+						</li>
+					</ul>
+				</div>
+			</section>
+		</section>
+		<section>
+			<section>
+				<div>
+					<h4>DQL - Data Query Language</h4>
+					<ul class="pure-list">
+						<li>
+							<p class="highlight">SELECT</p>
+							<p class="explanation">Używany do <u>wyciągania</u> danych z bazy</p>
+							<p class="small-helper">przykład użycia:</p>
+							<p class="small-text">SELECT {CO} FROM {SKĄD}</p>
+							<p class="example">SELECT first_name, last_name FROM customers</p>
+						</li>
+					</ul>
+				</div>
+			</section>
+			<section>
+				<div>
+					<h4>DML - Data Manipulation Language</h4>
+					<ul class="pure-list">
+						<li>
+							<p class="highlight">INSERT</p>
+							<p class="explanation">Używany do <u>wpisywania</u> nowych danych do bazy</p>
+							<p class="small-helper">przykład użycia:</p>
+							<p class="small-text">INSERT INTO {DOKĄD} (KOLUMNA_1, KOLUMNA_2) VALUES (WARTOŚĆ_1, WARTOŚĆ_2)</p>
+							<p class="example">INSERT INTO customers (first_name, last_name) VALUES ('Jan', 'Kowalski')</p>
+						</li>
+					</ul>
+				</div>
+			</section>
+			<section>
+				<div>
+					<h4>DML - Data Manipulation Language</h4>
+					<ul class="pure-list">
+						<li>
+							<p class="highlight">UPDATE</p>
+							<p class="explanation">Używany do <u>aktualizowania</u> istniejących danych w bazie</p>
+							<p class="small-helper">przykład użycia:</p>
+							<p class="small-text">UPDATE {CO} SET {KOLUMNA_1} = {WARTOŚĆ_1}</p>
+							<p class="example">UPDATE customers SET last_name = 'Nowak' WHERE last_name = 'Kowalski'</p>
+						</li>
+					</ul>
+				</div>
+			</section>
+			<section>
+				<div>
+					<h4>DML - Data Manipulation Language</h4>
+					<ul class="pure-list">
+						<li>
+							<p class="highlight">DELETE</p>
+							<p class="explanation">Używany do <u>usuwania</u> danych z bazy</p>
+							<p class="small-helper">przykład użycia:</p>
+							<p class="small-text">DELETE FROM {SKĄD}</p>
+							<p class="example">DELETE FROM customers WHERE last_name = 'Kowalski'</p>
+						</li>
+					</ul>
+				</div>
+			</section>
+		</section>
+		<section>
+			<section>
+				<div>
+					<h4>DCL - Data Control Language</h4>
+					<ul class="pure-list">
+						<li>
+							<p class="highlight">GRANT</p>
+							<p class="explanation">Używany do <u>nadawania</u> uprawnień do obiektów użytkownikom</p>
+							<p class="small-helper">przykład użycia:</p>
+							<p class="example">GRANT ALL PRIVILEGES ON customers TO developer WITH GRANT OPTION</p>
+						</li>
+					</ul>
+				</div>
+			</section>
+			<section>
+				<div>
+					<h4>DCL - Data Control Language</h4>
+					<ul class="pure-list">
+						<li>
+							<p class="highlight">REVOKE</p>
+							<p class="explanation">Używany do <u>odbierania</u> uprawnień do obiektów użytkownikom</p>
+							<p class="small-helper">przykład użycia:</p>
+							<p class="example">REVOKE ALL PRIVILEGES ON customers FROM developer</p>
+						</li>
+					</ul>
+				</div>
+			</section>
+			<section>
+				<div>
+					<h4>DCL - Data Control Language</h4>
+					<ul class="pure-list">
+						<li>
+							<p class="highlight">DENY</p>
+							<p class="explanation">Używany do <u>zabraniania</u> wykonywania operacji</p>
+							<p class="small-helper">przykład użycia:</p>
+							<p class="example">DENY SELECT ON customers TO developer</p>
+						</li>
+					</ul>
+				</div>
+			</section>
+		</section>
+		<section>
+			<h2>Dzięki za uwagę :)</h2>
+		</section>
+	</div>
+</div>
+<script src="../../reveal.js/js/reveal.js"></script>
+<script>
+	// More info about config & dependencies:
+	// - https://github.com/hakimel/reveal.js#configuration
+	// - https://github.com/hakimel/reveal.js#dependencies
+	Reveal.initialize({
+		dependencies: [
+			{ src: '../../reveal.js/plugin/markdown/marked.js' },
+			{ src: '../../reveal.js/plugin/markdown/markdown.js' },
+			{ src: '../../reveal.js/plugin/notes/notes.js', async: true },
+			{ src: '../../reveal.js/plugin/highlight/highlight.js', async: true },
+			{ src: '../../reveal-alt-arrows/alt-arrows.js' }
+		]
+	});
+	Reveal.configure({
+		keyboard: {
+			39: 'next',
+			37: 'prev'
+		}
+	});
+</script>
+</body>
+</html>
